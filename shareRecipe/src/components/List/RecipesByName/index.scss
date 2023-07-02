@@ -1,0 +1,33 @@
+.recipes-by__category-container {
+    min-height: 85vh;
+}
+.recipe-list_item {
+    .recipe-list_item-avatar {
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+        border-radius: 1rem;
+        @media (max-width: 500px) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .recipe-list_item-actions_icon {
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .recipe-list_item-actions {
+        button {
+            background: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: none;
+        }
+    }
+}
+.search-result__text {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+}

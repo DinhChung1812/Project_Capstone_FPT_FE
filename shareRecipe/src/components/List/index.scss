@@ -1,0 +1,102 @@
+.home-category-list__title,
+.home-list__title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    &.should-darken {
+        color: #021800;
+    }
+}
+.category-list__item {
+    border-radius: 14px;
+    width: 270px;
+    height: 170px;
+    margin-bottom: 15px;
+    margin-right: 16px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .recipe__category-name {
+        font-size: 1.8rem;
+        position: absolute;
+        bottom: 0.2rem;
+        left: 1rem;
+        color: #fff;
+        z-index: 1;
+    }
+    .view-img-category {
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        object-fit: cover;
+        flex-shrink: 0;
+        padding: 0px 5px;
+    }
+    .category-list__item-overlay {
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 95%;
+        height: 100%;
+        z-index: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+    }
+}
+.view-week {
+    background-color: #eff9f3;
+    border-radius: 14px;
+    align-items: center;
+    justify-content: center;
+}
+.view-info {
+    grid-area: info;
+}
+.view-img-container {
+    grid-area: img;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+.view-desc {
+    grid-area: desc;
+}
+.view-btn {
+    padding: 0.35rem;
+    border-radius: 14px;
+    cursor: pointer;
+    background-color: #e8e8e4;
+    grid-area: btn;
+    border: none;
+    font-size: 1.25rem;
+    transition: 100ms ease-in-out;
+}
+.view-btn-disabled {
+    padding: 0.35rem;
+    border-radius: 14px;
+    background-color: #94d2bd;
+    grid-area: btn;
+    border: none;
+    font-size: 1.25rem;
+    transition: 100ms ease-in-out;
+}
+.view-btn:hover {
+    background-color: #f0f3f3;
+    color: white;
+}
+
+.recipe-info__text-view a {
+    font-size: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* số dòng hiển thị */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home-category__wrapper {
+}

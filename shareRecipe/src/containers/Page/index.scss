@@ -1,0 +1,50 @@
+.col-bmi {
+    margin-left: -500px;
+    font-size: 20px;
+}
+.bmiImage {
+    width: 30% !important;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.btn-bmi {
+    margin-top: 15px;
+    width: 30%;
+    justify-content: center;
+}
+.txt-bmi {
+    width: 100%;
+}
+.select-bmi {
+    width: 100%;
+    font-size: 20px !important;
+}
+.client-bmi__info {
+    min-height: 85vh;
+    .main-ingredient__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: 500px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+.introduce-container {
+    h1 {
+        font-weight: 400;
+        font-size: 54px;
+        line-height: 65px;
+        text-align: center;
+        padding: 2.5rem 0;
+    }
+    p {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 45px;
+    }
+}
