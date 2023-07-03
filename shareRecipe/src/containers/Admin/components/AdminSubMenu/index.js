@@ -12,7 +12,12 @@ import warningIconImg from '../../../../assets/img/warning.png';
 export const links = [
     {
         to: '/admin/accounts',
-        label: 'Quản lí tài khoản',
+        label: 'Quản lí user',
+        imgIconSrc: userDarkIconImg,
+    },
+    {
+        to: '/admin/mod',
+        label: 'Quản lí mod',
         imgIconSrc: userDarkIconImg,
     },
     {

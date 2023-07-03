@@ -12,6 +12,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
     const navigate = useNavigate();
     const [idDishCategory, setIdDishCategory] = useState([]);
     const [listCateError, setListCateError] = useState('');
+    const [domain, setDomain] = useState('');
 
     useEffect(() => {
         if (recipeFormData?.idDishCategory) {
@@ -34,7 +35,13 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
         }
     };
 
+    const handleRadioChange = (event) => {
+        console.log(event.target.value)
+        setDomain(event.target.value);
+    };
+
     const onSubmit = (values) => {
+        console.log(values)
         if (idDishCategory.length === 0) {
             setListCateError('Vui lòng chọn ít nhất 1 thể loại món ăn');
             return;
@@ -83,6 +90,43 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                         touched={touched.description}
                         label="Mô tả công thức :"
                     />
+                    <div>
+                        <div style={{fontSize: '18px', fontWeight: 500}}>
+                            Món ăn thuộc vùng miền
+                        </div>
+                        <div style={{display:'flex'}}>
+                            <Input
+                                type="radio"
+                                name="domain"
+                                onChange={handleChange}
+                                placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
+                                value={"bac"}
+                                error={errors.domain}
+                                touched={touched.domain}
+                            />
+                            <label>Miền Bắc</label>
+                            <Input
+                                type="radio"
+                                name="domain"
+                                onChange={handleChange}
+                                placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
+                                value={"trung"}
+                                error={errors.domain}
+                                touched={touched.domain}
+                            />
+                            <label>Miền Trung</label>
+                            <Input
+                                type="radio"
+                                name="domain"
+                                onChange={handleChange}
+                                placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
+                                value={"nam"}
+                                error={errors.domain}
+                                touched={touched.domain}
+                            />
+                            <label>Miền Nam</label>
+                        </div>
+                    </div>
                     <div className="recipe-category__container">
                         <h5 className="recipe-field__label">Thể loại món ăn</h5>
                         <div className="recipe-category__list">

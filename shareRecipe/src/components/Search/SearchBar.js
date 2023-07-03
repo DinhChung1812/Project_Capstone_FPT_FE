@@ -5,9 +5,14 @@ import SearchIcon from '../../assets/svg-icons/search';
 export default function SearchBar() {
     const [searchTitle, setSearchTitle] = useState('');
     const navigate = useNavigate();
-
     return (
         <div className="home_view-search-container">
+            <select>
+                <option disabled selected>Miền</option>
+                <option>Miền Bắc</option>
+                <option>Miền Trung</option>
+                <option>Miền Nam</option>
+            </select>
             <div className="home-search__form">
                 <input
                     className="home_input-search"

@@ -7,16 +7,20 @@ import DeleteItemModal from '../../../components/common/DeleteItemModal';
 import Input from '../../../components/common/Input/Input';
 import AccountContext from '../../../context/account-context';
 
-const Accounts = () => {
+const Accounts = (props) => {
     const { list, isLoading, error, onFetchMore, extraListInfo, onRemoveItem, onUpdateRole } =
         useContext(AccountContext);
     const [isProcessing, setIsProcessing] = useState(false);
     const [search, setSearch] = useState('');
     const [selectedDeleteId, setSelectedDeleteId] = useState('');
     const [selectedEditItem, setSelectedEditItem] = useState('');
+    const [mode, setMode] = useState(1);
 
     useEffect(() => {
         onFetchMore(1);
+        if (props.mod) {
+            setMode(props.mod)
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -53,6 +57,10 @@ const Accounts = () => {
                 setIsProcessing(false);
             });
     };
+
+    const selectMode = (event) => {
+        setMode(event.target.value)
+    }
 
     if (!isLoading && error) {
         return <p className="error-message">{error?.message || 'Lỗi xảy ra!'}</p>;
@@ -109,6 +117,7 @@ const Accounts = () => {
                 onEdit={(id) => setSelectedEditItem(id)}
                 selectedEditItem={selectedEditItem}
                 onCancelEdit={() => setSelectedEditItem('')}
+                mode={mode}
             />
             {isLoading && (
                 <div className="global-list__loader-container">

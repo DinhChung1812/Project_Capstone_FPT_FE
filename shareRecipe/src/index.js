@@ -254,6 +254,14 @@ root.render(
                                             }
                                         />
                                         <Route
+                                            path="mod"
+                                            element={
+                                                <SuspenseWrapper>
+                                                    <Accounts mod={0}/>
+                                                </SuspenseWrapper>
+                                            }
+                                        />
+                                        <Route
                                             path="recipes"
                                             element={
                                                 <SuspenseWrapper>

@@ -61,6 +61,7 @@ export const initialRecipeFormData = {
     description: '',
     level: '',
     time: '',
+    domain: '',
     idDishCategory: [],
     mainIngredients: [],
     extraIngredients: [],

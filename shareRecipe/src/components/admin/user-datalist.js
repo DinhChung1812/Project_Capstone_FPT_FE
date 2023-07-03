@@ -5,7 +5,7 @@ import Paginator from '../common/Paginator';
 import { mapRoleKeyToText, MAX_ITEMS, role_options } from '../../constants';
 import Input from '../common/Input/Input';
 
-function MobileCard({ item, no, onEdit, onDelete, onChangeRole, selectedEditItem, onCancelEdit }) {
+function MobileCard({mode, item, no, onEdit, onDelete, onChangeRole, selectedEditItem, onCancelEdit }) {
     return (
         <div className="custom-card">
             <div className="custom-row">
@@ -78,6 +78,12 @@ function MobileCard({ item, no, onEdit, onDelete, onChangeRole, selectedEditItem
                         )}
                     </p>
                 </div>
+                {mode == 0 &&
+                    <div className="custom-col">
+                        <strong>CCCD</strong>
+                        <p>{item.identity}</p>
+                    </div>
+                }
             </div>
         </div>
     );
@@ -93,10 +99,26 @@ const UserDataList = ({
     onChangeRole,
     selectedEditItem,
     onCancelEdit,
+    mode
 }) => {
     const isMobile = useMediaQuery({ query: `(max-width: 768px)` });
-
-    let listUserMarkup = list.map((item, index) => (
+    let newList;
+    if ((window.location.pathname).includes('mod')) {
+        mode = 0;
+    }
+    if (mode == 0) {
+        newList = [];
+        for (let i = 0; i <= list.length; i++) {
+            if (list[i] && list[i].role === 'ROLE_MOD') {
+                console.log("HERE")
+                newList.push(list[i])
+            }
+        }
+    } else if (mode == 1){
+        newList = list
+    }
+    console.log(newList)
+    let listUserMarkup = newList && newList.map((item, index) => (
         <li key={item.accountId} className={styles.dataItem}>
             <span className={styles.no}>{(currentPage - 1) * MAX_ITEMS + index + 1}</span>
             <span>{item.userName || '-'}</span>
@@ -123,6 +145,9 @@ const UserDataList = ({
                     mapRoleKeyToText(item.role)
                 )}
             </span>
+            {mode == 0 &&
+                <span>{item.identity || ''}</span>
+            }
             <span>
                 <div className="d-flex align-items-center mw-60-px gap-sm">
                     {selectedEditItem === item.accountId ? (
@@ -160,6 +185,7 @@ const UserDataList = ({
     if (isMobile) {
         listUserMarkup = list.map((item, index) => (
             <MobileCard
+                mode={mode}
                 no={(currentPage - 1) * MAX_ITEMS + index + 1}
                 key={item.accountId}
                 item={item}
@@ -180,6 +206,9 @@ const UserDataList = ({
                         <strong>Họ và tên</strong>
                         <strong>E-mail</strong>
                         <strong>Chức vụ</strong>
+                        {mode == 0 &&
+                            <strong>CCCD</strong>
+                        }
                         <strong />
                     </li>
                 )}

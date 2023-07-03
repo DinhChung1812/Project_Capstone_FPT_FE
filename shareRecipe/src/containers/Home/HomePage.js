@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import ListCategory from '../../components/List/listCategory';
 import ListTopMonth from '../../components/List/listTopMonth';
@@ -12,6 +12,8 @@ import img5 from '../../assets/img/banner5.jpg';
 import './homePage.scss';
 import SearchBar from '../../components/Search/SearchBar';
 import SearchRecipe from './SearchRecipe';
+import { getListRecipeCategoriesRequest } from '../../api/requests';
+import { ROLES } from '../../App';
 
 const carousels = [
     {

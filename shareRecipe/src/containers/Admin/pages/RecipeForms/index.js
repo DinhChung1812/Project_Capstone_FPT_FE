@@ -58,6 +58,7 @@ const RecipeForm = () => {
         if (id && dataResponse?.name) {
             startTransition(() => {
                 onSetFormData({
+                    domain: dataResponse.domain,
                     name: dataResponse.name,
                     description: dataResponse?.formula?.describe,
                     level: dataResponse.level,
@@ -296,6 +297,7 @@ const RecipeForm = () => {
                     id={id}
                     isLoading={isLoading}
                     initialValues={{
+                        domain: recipeFormData.domain || '',
                         name: recipeFormData.name || '',
                         description: recipeFormData.description || '',
                         level: recipeFormData?.level?.toString() || '',

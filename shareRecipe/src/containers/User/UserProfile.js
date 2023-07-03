@@ -14,10 +14,11 @@ import { generateImageUrl } from '../../utils';
 import { fileUploadHandler } from '../../hooks/useFileUpload';
 import { notification } from 'antd';
 
-const EditProfileForm = ({ item, callback, setShouldUpdate }) => {
+const EditProfileForm = ({ item, callback, setShouldUpdate, dataResponse }) => {
     const [isProcessing, setIsProcessing] = useState(false);
 
     const onSubmit = (values) => {
+        console.log(values)
         if (new Date() < new Date(values.dob)) {
             notification.open({
                 message: 'Vui lòng chọn ngày sinh không vượt quá ngày hiện tại',
@@ -36,6 +37,7 @@ const EditProfileForm = ({ item, callback, setShouldUpdate }) => {
             dob: values.dob,
             avatarImage: item.avatarImage,
             email: item.email,
+            identity: item.identity
         })
             .then(({ data }) => {
                 setIsProcessing(false);
@@ -61,6 +63,7 @@ const EditProfileForm = ({ item, callback, setShouldUpdate }) => {
                     gender: item?.gender || 'Nam',
                     phone: item?.phone || '',
                     address: item?.address || '',
+                    identity: item?.identity || ''
                 }}
                 onSubmit={onSubmit}
                 validationSchema={ProfileSchema}
@@ -166,6 +169,24 @@ const EditProfileForm = ({ item, callback, setShouldUpdate }) => {
                                 />
                             </div>
                         </div>
+                        {dataResponse && dataResponse.role === 'ROLE_MOD' &&
+                            <div className="d-flex align-items-center gap-5 mb-3">
+                                <div className="d-flex gap-4 align-items-center edit-profile__field-row w-100">
+                                    <p className="w-150px">Căn cước công dân: </p>
+                                    <Input
+                                        name="identity"
+                                        onChange={handleChange}
+                                        value={values.identity}
+                                        error={errors.identity}
+                                        touched={touched.identity}
+                                        containerNoMarginBottom
+                                        className="flex-fill"
+                                        errorNormalPosition
+                                        inputClassName="w-50"
+                                    />
+                                </div>
+                            </div>
+                        }
                         {item?.messContent && <p className="mb-3 error-message">{item?.messContent}</p>}
                         <div className="d-flex justify-content-end gap-2">
                             <button
@@ -249,6 +270,7 @@ const UserProfile = () => {
         return <p className="error-message">{error?.message || 'Lỗi xảy ra!'}</p>;
     }
 
+    console.log(dataResponse)
     return (
         <div className="mh-90vh">
             <div className="profile__banner-top">
@@ -300,6 +322,7 @@ const UserProfile = () => {
                                 setShouldUpdate(false);
                                 onUpdateProfile(newValues);
                             }}
+                            dataResponse={dataResponse}
                             setShouldUpdate={setShouldUpdate}
                         />
                     ) : (
@@ -328,6 +351,13 @@ const UserProfile = () => {
                                     <strong>Địa chỉ: </strong> {dataResponse?.address}
                                 </div>
                             </div>
+                            {dataResponse.role && dataResponse.role === 'ROLE_MOD' &&
+                                <div className="d-flex align-items-center gap-5 mb-3">
+                                    <div className="w-100">
+                                        <strong>Căn cước công dân: </strong> {dataResponse?.identity}
+                                    </div>
+                                </div>
+                            }
                             <div className="d-flex justify-content-end">
                                 <button
                                     className="button button-sm button-green"
