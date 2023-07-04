@@ -7,7 +7,7 @@ export default function SearchBar() {
     const navigate = useNavigate();
     return (
         <div className="home_view-search-container">
-            <select>
+            <select style={{borderRadius:"2rem"}}>
                 <option disabled selected>Miền</option>
                 <option>Miền Bắc</option>
                 <option>Miền Trung</option>
