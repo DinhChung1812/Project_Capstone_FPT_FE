@@ -94,7 +94,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                         <div style={{fontSize: '18px', fontWeight: 500}}>
                             Món ăn thuộc vùng miền
                         </div>
-                        <div style={{display:'flex'}}>
+                        <div style={{display:'flex', marginTop:'1rem'}}>
                             <Input
                                 type="radio"
                                 name="domain"
@@ -104,7 +104,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
-                            <label>Miền Bắc</label>
+                            <label style={{marginTop:-6, marginRight:'1rem'}}>Miền Bắc</label>
                             <Input
                                 type="radio"
                                 name="domain"
@@ -114,7 +114,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
-                            <label>Miền Trung</label>
+                            <label style={{marginTop:-6, marginRight:'1rem'}}>Miền Trung</label>
                             <Input
                                 type="radio"
                                 name="domain"
@@ -124,7 +124,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
-                            <label>Miền Nam</label>
+                            <label style={{marginTop:-6, marginRight:'1rem'}}>Miền Nam</label>
                         </div>
                     </div>
                     <div className="recipe-category__container">
