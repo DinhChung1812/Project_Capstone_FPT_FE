@@ -35,8 +35,8 @@ const modeGetRecipeListRequest = (creator, page = 1, search = '') =>
         },
     });
 
-const getListRecipeByNameRequest = (name, page = 1, search = '') =>
-    axios.get(`/searchdishbyname?name=${name}&page_index=${page}&searchData=${search}`);
+const getListRecipeByNameRequest = (name, domain, page = 1, search = '') =>
+    axios.get(`/searchdishbyname?name=${name}${domain && '&domain=' + domain}&page_index=${page}&searchData=${search}`);
 
 const getListRecipeCategoriesRequest = () => axios.get('/getCategories');
 

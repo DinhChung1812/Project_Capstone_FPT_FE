@@ -4,14 +4,15 @@ import SearchIcon from '../../assets/svg-icons/search';
 
 export default function SearchBar() {
     const [searchTitle, setSearchTitle] = useState('');
+    const [domain, setDomain] = useState('');
     const navigate = useNavigate();
     return (
         <div className="home_view-search-container">
-            <select style={{borderRadius:"2rem"}}>
+            <select onChange={(e) => setDomain(e.target.value)} style={{borderRadius:"2rem"}}>
                 <option disabled selected>Miền</option>
-                <option>Miền Bắc</option>
-                <option>Miền Trung</option>
-                <option>Miền Nam</option>
+                <option value={'bac'}>Miền Bắc</option>
+                <option value={'trung'}>Miền Trung</option>
+                <option value={'nam'}>Miền Nam</option>
             </select>
             <div className="home-search__form">
                 <input
@@ -26,7 +27,7 @@ export default function SearchBar() {
                     type="button"
                     onClick={() => {
                         if (searchTitle) {
-                            navigate(`/list-recipe-by-name?name=${searchTitle.trim()}`);
+                            navigate(`/list-recipe-by-name?name=${searchTitle.trim()}${domain && "&domain=" + domain}`);
                         }
                     }}
                 >

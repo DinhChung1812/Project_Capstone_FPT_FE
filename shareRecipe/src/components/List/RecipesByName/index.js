@@ -15,10 +15,11 @@ const RecipesByName = () => {
     const [search, setSearch] = useState('');
     const [searchParams] = useSearchParams();
     const name = searchParams.get('name');
+    const domain = searchParams.get('domain');
     const navigate = useNavigate();
 
     useEffect(() => {
-        onFetchMoreByName(name, 1, '');
+        onFetchMoreByName(name, domain, 1, '');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name]);
 
@@ -79,7 +80,7 @@ const RecipesByName = () => {
                         maxPage={recipeByNameExtraListInfo.numOfPages}
                         curPage={recipeByNameExtraListInfo.pageIndex}
                         scrollAfterClicking={false}
-                        callback={(page) => onFetchMoreByName(name, page, search || '')}
+                        callback={(page) => onFetchMoreByName(name, domain, page, search || '')}
                     />
                     {isLoading && (
                         <div className="global-list__loader-container">

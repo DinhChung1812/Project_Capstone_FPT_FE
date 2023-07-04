@@ -220,9 +220,9 @@ export const RecipeProvider = ({ children }) => {
             });
     };
 
-    const fetchRecipeListByName = (name, page, search = '') => {
+    const fetchRecipeListByName = (name, domain, page, search = '') => {
         dispatchContext(recipeGetListByNameAction());
-        getListRecipeByNameRequest(name, page, search)
+        getListRecipeByNameRequest(name, domain, page, search)
             .then(({ data }) => {
                 const { dishResponseList = [], pageIndex, numOfPages } = data;
                 dispatchContext(
@@ -345,7 +345,7 @@ export const RecipeProvider = ({ children }) => {
                 onRemoveItemFromList: (id) => dispatchContext(removeRecipeItemFromList(id)),
                 onFetchDetail: (id) => fetchRecipeDetail(id),
                 onAdminFetchMore: (page, search) => fetchAdminRecipeList(page, search),
-                onFetchMoreByName: (name, page, search) => fetchRecipeListByName(name, page, search),
+                onFetchMoreByName: (name, domain, page, search) => fetchRecipeListByName(name, domain, page, search),
                 onFetchRecipeCategories: () => fetchRecipeCategories(),
                 onClearDetail: () => dispatchContext(recipeClearDetailAction()),
                 onFetchMoreRecipeCommentReport: (page, search) => fetchRecipeCommentReportList(page, search),
