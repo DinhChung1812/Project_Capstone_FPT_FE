@@ -178,6 +178,7 @@ const RecipeForm = () => {
             origin: 'vn',
             level: +recipeFormData.level,
             calo: recipeFormData.calo,
+            domain: recipeFormData.domain,
             numberPeopleForDish: 1,
             time: recipeFormData.time,
             idDishCategory: recipeFormData.idDishCategory,
