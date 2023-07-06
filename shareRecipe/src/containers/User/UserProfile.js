@@ -37,7 +37,8 @@ const EditProfileForm = ({ item, callback, setShouldUpdate, dataResponse }) => {
             dob: values.dob,
             avatarImage: item.avatarImage,
             email: item.email,
-            identity: item.identity
+            identity: values.identity,
+            cccd: values.identity
         })
             .then(({ data }) => {
                 setIsProcessing(false);
@@ -354,7 +355,7 @@ const UserProfile = () => {
                             {dataResponse.role && dataResponse.role === 'ROLE_MOD' &&
                                 <div className="d-flex align-items-center gap-5 mb-3">
                                     <div className="w-100">
-                                        <strong>Căn cước công dân: </strong> {dataResponse?.identity}
+                                        <strong>Căn cước công dân: </strong> {dataResponse?.identity_mod}
                                     </div>
                                 </div>
                             }
