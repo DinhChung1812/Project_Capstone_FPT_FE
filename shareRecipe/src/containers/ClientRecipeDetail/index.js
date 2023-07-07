@@ -80,6 +80,9 @@ const TopRecipeInfo = ({
                         <strong>Kcal :</strong> {dataResponse.totalCalo}
                     </div>
                     <div className="mb-2 recipe-info__item">
+                        <strong>Vùng miền :</strong> {dataResponse.region}
+                    </div>
+                    <div className="mb-2 recipe-info__item">
                         <strong>Độ khó :</strong> {showRecipeLevelText(dataResponse.level)}
                     </div>
                     <div className="mb-2 mt-2 recipe-info__item">

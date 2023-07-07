@@ -146,7 +146,7 @@ const UserDataList = ({
                 )}
             </span>
             {mode == 0 &&
-                <span>{item.identity || ''}</span>
+                <span>{item.identity_mod || ''}</span>
             }
             <span>
                 <div className="d-flex align-items-center mw-60-px gap-sm">

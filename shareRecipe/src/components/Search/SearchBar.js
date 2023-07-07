@@ -10,9 +10,9 @@ export default function SearchBar() {
         <div className="home_view-search-container">
             <select onChange={(e) => setDomain(e.target.value)} style={{borderRadius:"2rem"}}>
                 <option disabled selected>Miền</option>
-                <option value={'bac'}>Miền Bắc</option>
-                <option value={'trung'}>Miền Trung</option>
-                <option value={'nam'}>Miền Nam</option>
+                <option value={'Miền Bắc'}>Miền Bắc</option>
+                <option value={'Miền Trung'}>Miền Trung</option>
+                <option value={'Miền Nam'}>Miền Nam</option>
             </select>
             <div className="home-search__form">
                 <input

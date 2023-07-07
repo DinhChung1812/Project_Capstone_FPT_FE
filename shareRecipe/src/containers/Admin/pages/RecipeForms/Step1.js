@@ -100,7 +100,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 name="domain"
                                 onChange={handleChange}
                                 placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
-                                value={"bac"}
+                                value={"Miền Bắc"}
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
@@ -110,7 +110,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 name="domain"
                                 onChange={handleChange}
                                 placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
-                                value={"trung"}
+                                value={"Miền Trung"}
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
@@ -120,7 +120,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 name="domain"
                                 onChange={handleChange}
                                 placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
-                                value={"nam"}
+                                value={"Miền Nam"}
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
