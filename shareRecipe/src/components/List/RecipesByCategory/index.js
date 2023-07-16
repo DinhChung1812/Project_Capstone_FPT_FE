@@ -113,9 +113,9 @@ const RecipesByCategory = () => {
                         <select onChange={(e) => setDomain(e.target.value)}
                                 style={{borderRadius:"1rem", height:"4rem", width:"10rem"}}>
                             <option disabled selected>Miền</option>
-                            <option value={'bac'}>Miền Bắc</option>
-                            <option value={'trung'}>Miền Trung</option>
-                            <option value={'nam'}>Miền Nam</option>
+                            <option value={'Miền Bắc'}>Miền Bắc</option>
+                            <option value={'Miền Trung'}>Miền Trung</option>
+                            <option value={'Miền Nam'}>Miền Nam</option>
                         </select>
                         <form
                             className="global-list_search shadow rounded-3"
