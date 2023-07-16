@@ -49,6 +49,7 @@ export const RecipeByCategoryItem = ({ item, isAuthenticated }) => (
 );
 
 const RecipesByCategory = () => {
+    const [domain, setDomain] = useState('');
     const {
         list,
         isLoading,
@@ -66,7 +67,7 @@ const RecipesByCategory = () => {
     // const [category, setCategory] = useState('');
 
     useEffect(() => {
-        onFetchMoreByCategory(id, 1, '');
+        onFetchMoreByCategory(id, 1, '', '');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
@@ -109,26 +110,33 @@ const RecipesByCategory = () => {
                                 </option>
                             ))}
                         </Input> */}
+                        <select onChange={(e) => setDomain(e.target.value)}
+                                style={{borderRadius:"1rem", height:"4rem", width:"10rem"}}>
+                            <option disabled selected>Miền</option>
+                            <option value={'bac'}>Miền Bắc</option>
+                            <option value={'trung'}>Miền Trung</option>
+                            <option value={'nam'}>Miền Nam</option>
+                        </select>
                         <form
                             className="global-list_search shadow rounded-3"
                             onSubmit={(e) => {
                                 e.preventDefault();
-                                onFetchMoreByCategory(id, 1, search.trim());
+                                onFetchMoreByCategory(id, 1, search.trim(), domain);
                             }}
                         >
                             <SearchOutlined
                                 className="global-list_search-icon cursor-pointer"
-                                onClick={() => onFetchMoreByCategory(id, 1, search.trim())}
+                                onClick={() => onFetchMoreByCategory(id, 1, search.trim(), domain)}
                             />
                             <Input
                                 onChange={(e) => {
                                     const { value } = e.target;
                                     setSearch(value);
                                     if (!value.trim()) {
-                                        onFetchMoreByCategory(id, 1, '');
+                                        onFetchMoreByCategory(id, 1, '', '');
                                     }
                                 }}
-                                placeholder="Tìm  kiếm công  thức ..."
+                                placeholder="Tìm kiếm công  thức ..."
                                 value={search}
                                 error={null}
                                 touched={true}
@@ -148,7 +156,7 @@ const RecipesByCategory = () => {
                         maxPage={extraListInfo.numOfPages}
                         curPage={extraListInfo.pageIndex}
                         scrollAfterClicking={false}
-                        callback={(page) => onFetchMoreByCategory(id, page, search || '')}
+                        callback={(page) => onFetchMoreByCategory(id, page, search || '', domain || '')}
                     />
                     {isLoading && (
                         <div className="global-list__loader-container">

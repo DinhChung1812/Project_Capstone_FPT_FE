@@ -141,9 +141,9 @@ export const RecipeProvider = ({ children }) => {
         userInfo: { roles, username },
     } = useContext(AuthContext);
 
-    const fetchRecipeListByCategory = (categoryId, page, search = '') => {
+    const fetchRecipeListByCategory = (categoryId, page, search, domain = '') => {
         dispatchContext(recipeGetListAction());
-        getListRecipeByCategoryRequest(categoryId, page, search)
+        getListRecipeByCategoryRequest(categoryId, page, search, domain)
             .then(({ data }) => {
                 const { dishResponseList = [], pageIndex, numOfPages } = data;
                 dispatchContext(
@@ -339,8 +339,8 @@ export const RecipeProvider = ({ children }) => {
         <RecipeContext.Provider
             value={{
                 ...state,
-                onFetchMoreByCategory: (categoryId, page, search) =>
-                    fetchRecipeListByCategory(categoryId, page, search),
+                onFetchMoreByCategory: (categoryId, page, search, domain) =>
+                    fetchRecipeListByCategory(categoryId, page, search, domain),
                 onClearList: () => dispatchContext(recipeClearListAction()),
                 onRemoveItemFromList: (id) => dispatchContext(removeRecipeItemFromList(id)),
                 onFetchDetail: (id) => fetchRecipeDetail(id),

@@ -10,8 +10,8 @@ const getTopNewListRecipeRequest = () => axios.get(apiUrl.TOPNEW_URL);
 
 const getTopWeekListRecipeRequest = () => axios.get(apiUrl.TOPWEEK_URL);
 
-const getListRecipeByCategoryRequest = (categoryId, page = 1, search = '') =>
-    axios.get(`/searchdishbycate?cateId=${categoryId}&page_index=${page}&searchData=${search}`);
+const getListRecipeByCategoryRequest = (categoryId, page = 1, search = '', domain = '') =>
+    axios.get(`/searchdishbycate?cateId=${categoryId}&page_index=${page}&searchData=${search}&domain=${domain}`);
 
 const getRecipeDetailRequest = (id) => axios.get(`/getRecipeDetail?dishId=${id}`);
 
