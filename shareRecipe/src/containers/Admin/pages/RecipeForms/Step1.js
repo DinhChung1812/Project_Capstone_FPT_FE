@@ -70,6 +70,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
             enableReinitialize={true}
         >
             {({ errors, touched, values, handleChange }) => (
+                console.log(values),
                 <Form>
                     <Input
                         name="name"
@@ -91,11 +92,48 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                         label="Mô tả công thức :"
                     />
                     <div>
-                        <div style={{fontSize: '18px', fontWeight: 500}}>
+                        <div style={{ fontSize: '18px', fontWeight: 500 }}>
                             Món ăn thuộc vùng miền
                         </div>
-                        <div style={{display:'flex', marginTop:'1rem'}}>
-                            <Input
+                        <div style={{ display: 'flex', marginTop: '1rem' }} >
+
+                            <input
+                                type="radio"
+                                name="domain"
+                                onChange={handleChange}
+                                placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
+                                value={"Miền Bắc"}
+                                error={errors.domain}
+                                touched={touched.domain}
+                                checked={values.domain === 'Miền Bắc'}
+                                style={{ marginRight: '1rem'}}
+                            />
+                            <label style={{ marginRight: '2rem' }}>Miền Bắc</label>
+                            <input
+                                type="radio"
+                                name="domain"
+                                onChange={handleChange}
+                                placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
+                                value={"Miền Trung"}
+                                error={errors.domain}
+                                touched={touched.domain}
+                                checked={values.domain === 'Miền Trung'}
+                                style={{ marginRight: '1rem'}}
+                            />
+                            <label style={{ marginRight: '2rem' }}>Miền Trung</label>
+                            <input
+                                type="radio"
+                                name="domain"
+                                onChange={handleChange}
+                                placeholder="Vui lòng mô tả chi tiết công thức nấu ăn của bạn"
+                                value={"Miền Nam"}
+                                error={errors.domain}
+                                touched={touched.domain}
+                                checked={values.domain === 'Miền Nam'}
+                                style={{ marginRight: '1rem' }}
+                            />
+                            <label style={{ marginRight: '2rem' }}>Miền Nam</label>
+                            {/* <Input
                                 type="radio"
                                 name="domain"
                                 onChange={handleChange}
@@ -104,7 +142,7 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 error={errors.domain}
                                 touched={touched.domain}
                             />
-                            <label style={{marginTop:-6, marginRight:'1rem'}}>Miền Bắc</label>
+                            <label style={{ marginTop: -6, marginRight: '1rem' }}>Miền Bắc</label>
                             <Input
                                 type="radio"
                                 name="domain"
@@ -113,8 +151,9 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 value={"Miền Trung"}
                                 error={errors.domain}
                                 touched={touched.domain}
+                                checked={values.domain === 'Miền Trung'}
                             />
-                            <label style={{marginTop:-6, marginRight:'1rem'}}>Miền Trung</label>
+                            <label style={{ marginTop: -6, marginRight: '1rem' }}>Miền Trung</label>
                             <Input
                                 type="radio"
                                 name="domain"
@@ -123,8 +162,9 @@ const Step1 = ({ recipeFormData, setRecipeFormData, id, isLoading, initialValues
                                 value={"Miền Nam"}
                                 error={errors.domain}
                                 touched={touched.domain}
+                                checked={values.domain === 'Miền Nam'}
                             />
-                            <label style={{marginTop:-6, marginRight:'1rem'}}>Miền Nam</label>
+                            <label style={{ marginTop: -6, marginRight: '1rem' }}>Miền Nam</label> */}
                         </div>
                     </div>
                     <div className="recipe-category__container">
